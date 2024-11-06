@@ -1,5 +1,3 @@
-import com.adarshr.gradle.testlogger.theme.ThemeType
-
 plugins {
     kotlin("jvm") version "1.9.0"
     id("com.adarshr.test-logger") version "3.1.0"
@@ -12,19 +10,18 @@ repositories {
     mavenCentral()
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
 dependencies {
-    testImplementation(kotlin("test"))
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testImplementation("org.assertj:assertj-core:3.24.2")
 }
 
-tasks.test {
+tasks.withType<Test> {
     useJUnitPlatform()
-}
-
-kotlin {
-    jvmToolchain(17)
-}
-
-testlogger {
-    theme = ThemeType.PLAIN
 }
