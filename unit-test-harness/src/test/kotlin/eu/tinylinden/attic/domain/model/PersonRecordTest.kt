@@ -11,7 +11,7 @@ internal class PersonRecordTest {
         val new = PersonRecordFixtures.newJane()
 
         // when
-        val actual = activate(record = new, id = { PersonIdFixtures.fixed() })
+        val actual = activate(from = new, id = PersonIdFixtures.fixed())
 
         // then
         assertThat(actual).isEqualTo(PersonRecordFixtures.activeJane())
