@@ -19,7 +19,7 @@ java {
 dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    testImplementation("org.assertj:assertj-core:3.24.2")
+    testImplementation("io.strikt:strikt-core:0.34.0")
 }
 
 tasks.withType<Test> {
