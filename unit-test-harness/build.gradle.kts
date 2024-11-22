@@ -1,7 +1,7 @@
 plugins {
-    kotlin("jvm") version "1.9.0"
-    id("io.gitlab.arturbosch.detekt") version "1.23.7"
-    id("com.adarshr.test-logger") version "3.1.0"
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.test.logger)
 }
 
 group = "eu.tinylinden.attic"
@@ -16,12 +16,14 @@ kotlin {
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
-    testImplementation("io.strikt:strikt-core:0.34.0")
-    testImplementation("io.mockk:mockk:1.13.13")
-    testImplementation("io.github.serpro69:kotlin-faker:1.16.0")
+    testImplementation(libs.kotlin.faker)
+    testImplementation(libs.strikt.core)
+    testImplementation(libs.mockk)
+    testImplementation(libs.junit.jupiter.api)
 
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.7")
+    testRuntimeOnly(libs.junit.jupiter.engine)
+
+    detektPlugins(libs.detekt.formatting)
 }
 
 tasks {
