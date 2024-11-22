@@ -33,4 +33,3 @@ internal class PersonRecordTest {
         expectThat(actual).isEqualTo(activeJane())
     }
 }
-

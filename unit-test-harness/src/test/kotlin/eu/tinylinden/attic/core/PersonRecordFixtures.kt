@@ -1,9 +1,15 @@
 package eu.tinylinden.attic.core
 
-internal object PersonRecordFixtures {
+import eu.tinylinden.attic.FakerAware
+
+internal object PersonRecordFixtures : FakerAware() {
 
     fun unregisteredJane() = PersonRecord.Unregistered(
         email = "jane@local",
+    )
+
+    fun unregisteredRandom() = PersonRecord.Unregistered(
+        email = faker.internet.safeEmail()
     )
 
     fun inactiveJane() = PersonRecord.Inactive(
